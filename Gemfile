@@ -48,3 +48,6 @@ end
 # device
 gem 'devise'
 gem 'rails_admin'
+
+# seed
+ gem 'seed-fu', '~> 2.3'
