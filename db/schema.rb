@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707085325) do
+ActiveRecord::Schema.define(version: 20160707092653) do
 
   create_table "alls", force: :cascade do |t|
     t.integer  "code"
@@ -25,18 +25,32 @@ ActiveRecord::Schema.define(version: 20160707085325) do
   end
 
   create_table "category17s", force: :cascade do |t|
+    t.integer  "code"
     t.string   "category17"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "category33s", force: :cascade do |t|
+    t.integer  "code"
     t.string   "category33"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.integer  "market_id"
+    t.integer  "category33_id"
+    t.integer  "category17_id"
+    t.integer  "scale_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "markets", force: :cascade do |t|
+    t.integer  "code"
     t.string   "market"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160707085325) do
   end
 
   create_table "scales", force: :cascade do |t|
+    t.integer  "code"
     t.string   "scale"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

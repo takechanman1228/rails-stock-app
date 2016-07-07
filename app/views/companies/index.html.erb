@@ -1,0 +1,7 @@
+<h1>企業一覧</h1>
+
+<ul>
+    <% @companies.each do |company| %>
+    <li><%= company.code %>,<%= company.name %></li>
+    <% end %>
+</ul>

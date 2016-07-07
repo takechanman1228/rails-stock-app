@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks, only: [:create, :destroy]
   end
-  root 'projects#index'
+  root 'companies#index'
+  resources :category17s
+  resources :category33s
+  resources :scales
+  resources :markets
+  resources :companies
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
