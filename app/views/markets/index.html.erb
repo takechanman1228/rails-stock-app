@@ -1,7 +1,7 @@
 <h1>市場</h1>
-<%= debug @markets%>
+<!-- <%= debug @markets%> -->
 <ul>
     <% @markets.each do |market| %>
-    <li><%= market.code %>,<%= market.market %></li>
+    <li><%= link_to market.market, market_path(market.id) %></li>
     <% end %>
 </ul>

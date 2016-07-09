@@ -3,6 +3,7 @@ class CreateScales < ActiveRecord::Migration
     create_table :scales do |t|
       t.integer :code
       t.string :scale
+      t.has_many :companies
 
       t.timestamps null: false
     end

@@ -1,0 +1,13 @@
+<h1><%= @market.market %></h1>
+
+<!-- <%= @market.code %>,
+<%= @market.market %>
+<%= @market.company_ids %> -->
+<h2>企業一覧</h2>
+<ul>
+<% @market.company_ids.each do |company_id| %>
+<li>
+    <%= @companies[company_id].name unless @companies[company_id].nil? %>
+</li>
+<% end %>
+</ul>
