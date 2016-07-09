@@ -1,10 +1,10 @@
-<%= form_for @project do |f| %>
+<%= form_for @company do |f| %>
 
 <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-    <% if @project.errors.any? %>
-    <%= @project.errors.messages[:title][0] %>
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+    <% if @company.errors.any? %>
+    <%= @company.errors.messages[:comment][0] %>
     <% end %>
 </p>
 

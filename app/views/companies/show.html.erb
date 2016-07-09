@@ -6,6 +6,7 @@
 <%= @company.category17["category17"] unless @company.category17.nil? %>,
 <%= @company.category33["category33"] unless @company.category33.nil? %>,
 <%= @company.scale["scale"] unless @company.scale.nil? %>
+<!-- <%= debug current_user.id %> -->
 
 <h2>コメント</h2>
 <ul>
@@ -20,3 +21,14 @@
 </li>
 <% end %>
 </ul>
+
+<li>
+    <%= form_for [@company, @company.comments.build] do |f| %>
+    <%= f.text_field :nickname %>
+    <%= f.text_field :comment %>
+    <%= f.hidden_field :is_public ,:value => true %>
+    <%= f.hidden_field :company ,:value => @company.code %>
+    <%= f.hidden_field :user_id ,:value => current_user.id%>
+    <%= f.submit %>
+    <% end %>
+</li>
