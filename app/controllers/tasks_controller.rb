@@ -13,9 +13,8 @@ class TasksController < ApplicationController
   end
 
   private
-
-      def task_params
-          params[:task].permit(:title)
-      end
+  def task_params
+      params[:task].permit(:title)
+  end
 
 end
