@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # coding: utf-8
-user = User.new
-user.email = 'admin@test.com'
-user.encrypted_password = '$2a$11$JY3oP7zm49jXS43XC5KyfeQUcjx.QUGdd3QsyIbeN.3ydiDkYyvFy'
-user.save!
+require "csv"
+
+CSV.foreach('db/market.csv', headers: true) do |row|
+  Market.create(:code => row[0], :market => row[1])
+end

@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # coding: utf-8
-user = User.new
-user.email = 'admin@test.com'
-user.encrypted_password = '$2a$11$JY3oP7zm49jXS43XC5KyfeQUcjx.QUGdd3QsyIbeN.3ydiDkYyvFy'
-user.save!
+require "csv"
+
+CSV.foreach('db/company.csv', headers: true) do |row|
+  Company.create(:code => row[0], :name => row[1],
+  :market_id => row[2],:category33_id => row[3],
+  :category17_id => row[4],:scale_id => row[5])
+end
