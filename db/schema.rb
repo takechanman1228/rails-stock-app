@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20160707092653) do
   end
 
   create_table "companies", force: :cascade do |t|
+    t.integer  "market_id"
+    t.integer  "category17_id"
+    t.integer  "category33_id"
+    t.integer  "scale_id"
     t.integer  "code"
     t.string   "name"
-    t.integer  "market_id"
-    t.integer  "category33_id"
-    t.integer  "category17_id"
-    t.integer  "scale_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

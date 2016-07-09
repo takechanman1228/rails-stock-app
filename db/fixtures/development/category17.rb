@@ -9,5 +9,5 @@
 require "csv"
 
 CSV.foreach('db/category17.csv', headers: true) do |row|
-  Category17.create(:id => row[0], :category17 => row[1])
+  Category17.create(:code => row[0], :category17 => row[1])
 end
