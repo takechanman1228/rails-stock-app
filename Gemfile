@@ -54,3 +54,7 @@ gem 'rails_admin'
 
 # seed
  gem 'seed-fu', '~> 2.3'
+
+
+ gem 'rails_12factor', group: :production
+
