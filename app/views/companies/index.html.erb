@@ -1,7 +1,11 @@
 <h1>企業一覧</h1>
-
+<!-- <%= debug @companies[0].market["market"] %>
+<%= debug @companies[1].market %> -->
 <ul>
-    <% @companies.each do |company| %>
-    <li><%= company.code %>,<%= company.name %></li>
+    <% @companies[0..100].each do |company| %>
+
+    <li><%= company.code %>,<%= company.name %>,
+      <%= company.market["market"] unless company.market.nil? %>
+    </li>
     <% end %>
 </ul>

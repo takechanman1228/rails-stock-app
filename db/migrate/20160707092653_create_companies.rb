@@ -1,6 +1,7 @@
 class CreateCompanies < ActiveRecord::Migration
   def change
     create_table :companies do |t|
+      t.belongs_to :market
       t.integer :code
       t.string :name
       t.integer :market_id
