@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  code: 1
+  name: MyString
+  market_id: 1
+  category33_id: 1
+  category17_id: 1
+  scale_id: 1
+
+two:
+  id: 1
+  code: 1
+  name: MyString
+  market_id: 1
+  category33_id: 1
+  category17_id: 1
+  scale_id: 1
