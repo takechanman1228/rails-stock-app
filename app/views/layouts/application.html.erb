@@ -7,25 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= image_tag "logo.png", :size => '60x40'%>
-<!-- 認証 -->
-<header>
-  <nav>
-    <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-    <% if user_signed_in? %>
-      <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-      <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "サインイン", new_user_registration_path %> |
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-  </nav>
-</header>
+  <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/companies">Stock App</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "企業", "/companies"  %></li>
+            <li><%= link_to "業種(33種)", "/category33s"  %></li>
+            <li><%= link_to "市場", "/markets"  %></li>
+              <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
+              <% if user_signed_in? %>
+                <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+                <!-- *_path はUserモデルを作成したときに、
+                  deviseにより自動で作成されてますので、rake routesで確認できます -->
+                <!-- <li>Logged in as <%= current_user.email %></li> -->
+                <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "サインイン", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 <!-- 警告表示  -->
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
@@ -33,7 +44,7 @@
 <!-- viewにかいたこと  -->
 <%= yield %>
 
-<%= link_to "Home", projects_path %>
+<%= link_to "Home", companies_path %>
 
 </body>
 </html>

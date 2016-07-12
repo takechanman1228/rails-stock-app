@@ -10,7 +10,7 @@
 <li>
     <%= form_for [@project, @project.tasks.build] do |f| %>
     <%= f.text_field :title %>
-    <%= f.submit %>
+    <%= f.button :submit, :class => 'btn-primary' %>
     <% end %>
 </li>
 </ul>

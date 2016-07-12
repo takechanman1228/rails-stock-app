@@ -9,7 +9,7 @@ gem 'sqlite3', group: :development
 # 本番ではpostgressを使用する
 gem 'pg', group: :production
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -58,7 +58,14 @@ gem 'rails_12factor', group: :production
 
 
 # bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha3'
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
+# gem 'bootstrap', '~> 4.0.0.alpha3'
+# source 'https://rails-assets.org' do
+#   gem 'rails-assets-tether', '>= 1.1.0'
+# end
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'autoprefixer-rails'
