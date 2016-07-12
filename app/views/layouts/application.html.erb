@@ -20,12 +20,7 @@
             <li><%= link_to "企業", "/companies"  %></li>
             <li><%= link_to "業種(33種)", "/category33s"  %></li>
             <li><%= link_to "市場", "/markets"  %></li>
-              <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
               <% if user_signed_in? %>
-                <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-                <!-- *_path はUserモデルを作成したときに、
-                  deviseにより自動で作成されてますので、rake routesで確認できます -->
-                <!-- <li>Logged in as <%= current_user.email %></li> -->
                 <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               <% else %>
@@ -38,9 +33,8 @@
       </div>
     </div>
 <!-- 警告表示  -->
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
+<!-- <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> -->
 <!-- viewにかいたこと  -->
 <%= yield %>
 <%= link_to "Home", companies_path %>

@@ -234,6 +234,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   less-rails
   pg
   rails (= 4.2.6)

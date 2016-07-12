@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
     # @markets = @companies[0].market
     # @markets_from_companies = Company.market
     @q = Company.ransack(params[:q])
-    @result_companies = @q.result
+    @result_companies = @q.result.page(params[:page]).per(40)
   end
   def show
   end
