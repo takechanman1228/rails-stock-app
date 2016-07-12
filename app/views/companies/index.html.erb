@@ -1,81 +1,72 @@
-<!-- <h1>企業一覧</h1> -->
-<!-- <%= debug @q %> -->
-<!-- <%= debug @result_companies %> -->
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <div class="panel-title">検索</div>
+<%- model_class = Company -%>
+<div class="panel-body">
+
+  <% if @result_companies %>
+    <% loop =  @result_companies %>
+  <% else %>
+    <% loop =  @companies[0..100] %>
+  <% end %>
+
+  <%= search_form_for(@q, method: :get) do |f| %>
+    <div class="col-sm-4">
+      <div class="form-group">
+          <%= f.label :code_eq %>
+          <%= f.text_field :code_eq, class: "form-control", placeholder: "企業コード" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+          <%= f.label :name_eq %>
+          <%= f.text_field :name_eq, class: "form-control", placeholder: "企業名" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :name_or_code_cont %>
+        <%= f.text_field :name_or_code_cont, class: "form-control", placeholder: "部分一致" %>
+      </div>
+    </div>
   </div>
-  <div class="panel-body">
+  <%= f.submit '検索', class: "btn btn-primary" %>
+  <%= link_to 'クリア', url_for, class: "btn btn-default" %>
+  <% end %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>企業コード</th>
+      <th>企業名</th>
+      <th>市場</th>
+      <th>業種</th>
+      <th>規模</th>
+      <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
+    </tr>
+  </thead>
 
-    <% if @result_companies %>
-      <% loop =  @result_companies %>
-    <% else %>
-      <% loop =  @companies[0..100] %>
+  <% if loop.length == 0 %>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>該当結果なし</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+  <% end %>
+  <tbody>
+  <%loop.each do |company| %>
+    <tr>
+      <td><%= company.code %></td>
+      <td><%= link_to company.name, company_path(company.id) %></td>
+      <td><%= link_to company.market["market"], market_path(company.market["id"])  unless company.market.nil? %></td>
+      <td><%= company.category33["category33"] unless company.category33.nil? %></td>
+      <td><%= company.scale["scale"] unless company.scale.nil? %></td>
     <% end %>
-
-    <%= search_form_for(@q, method: :get) do |f| %>
-      <div class="col-sm-4">
-        <div class="form-group">
-            <%= f.label :code_eq %>
-            <%= f.text_field :code_eq, class: "form-control", placeholder: "企業コード" %>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="form-group">
-            <%= f.label :name_eq %>
-            <%= f.text_field :name_eq, class: "form-control", placeholder: "企業名" %>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="form-group">
-          <%= f.label :name_or_code_cont %>
-          <%= f.text_field :name_or_code_cont, class: "form-control", placeholder: "部分一致" %>
-        </div>
-      </div>
-    </div>
-    <%= f.submit '検索', class: "btn btn-primary" %>
-    <%= link_to 'クリア', url_for, class: "btn btn-default" %>
-    <% end %>
-
-    <table class="table table-list">
-      <thead>
-        <tr>
-          <th>企業コード</th>
-          <th>企業名</th>
-          <th>市場</th>
-          <th>業種</th>
-          <th>規模</th>
-        </tr>
-      </thead>
-      <% if loop.length == 0 %>
-      <tbody>
-        <tr>
-          <td></td>
-          <td>該当結果なし</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-      <% end %>
-      <tbody>
-        <%loop.each do |company| %>
-
-        <tr>
-          <td><%= company.code %></td>
-          <td><%= link_to company.name, company_path(company.id) %></td>
-          <td><%= link_to company.market["market"], market_path(company.market["id"])  unless company.market.nil? %></td>
-          <td><%= company.category33["category33"] unless company.category33.nil? %></td>
-          <td><%= company.scale["scale"] unless company.scale.nil? %></td>
-        </tr>
-
-        <% end %>
-      </tbody>
-    </table>
-    <div class="row">
-      <div class="col-sm-12">
-        <%= paginate @result_companies %>
-      </div>
-    </div>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col-sm-12">
+    <%= paginate @result_companies %>
   </div>
 </div>
