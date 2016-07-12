@@ -1,14 +1,50 @@
 <h1><%= @company.name %></h1>
-
 <%= @company.code %>,
 <%= @company.name %>,
 <%= @company.market["market"] unless @company.market.nil? %>,
-<%= @company.category17["category17"] unless @company.category17.nil? %>,
 <%= @company.category33["category33"] unless @company.category33.nil? %>,
 <%= @company.scale["scale"] unless @company.scale.nil? %>
-<!-- <%= debug current_user.id %> -->
-
+<table class="table table-striped">
+   <thead class="thead-inverse">
+    <tr>
+      <th>企業コード</th>
+      <th>企業名</th>
+      <th>市場</th>
+      <th>業種</th>
+      <th>規模</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @company.code %></td>
+      <td><%= link_to @company.name, company_path(@company.id) %></td>
+      <td><%= link_to @company.market["market"], market_path(@company.market["id"])  unless @company.market.nil? %></td>
+      <td><%= @company.category33["category33"] unless @company.category33.nil? %></td>
+      <td><%= @company.scale["scale"] unless @company.scale.nil? %></td>
+    </tr>
+  </tbody>
+</table>
 <h2>コメント</h2>
+
+
+<table class="table">
+   <thead class="thead-inverse">
+    <tr>
+      <th>ニックネーム</th>
+      <th>コメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @company.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.nickname unless comment.nickname.nil? %></td>
+      <td><%= comment.comment unless comment.comment.nil? %></td>
+</tr>
+      <% end %>
+
+  </tbody>
+</table>
+<!--
 <ul>
 <% @company.comments.each do |comment| %>
 <li>
@@ -20,16 +56,24 @@
      %>
 </li>
 <% end %>
-</ul>
-<ul>
-  <li>
-      <%= form_for [@company, @company.comments.build] do |f| %>
-      <%= f.text_field :nickname %>
-      <%= f.text_field :comment %>
-      <%= f.hidden_field :is_public ,:value => true %>
-      <%= f.hidden_field :company ,:value => @company.code %>
-      <%= f.hidden_field :user_id ,:value => current_user.id%>
-      <%= f.button :submit, :class => 'btn-primary' %>
-      <% end %>
-  </li>
-</ul>
+</ul> -->
+<div class="container">
+<%= form_for [@company, @company.comments.build] do |f| %>
+<div class="form-group">
+  <label>ニックネーム</label>
+  <%= f.text_field :nickname,:class => "form-control" %>
+</div>
+<div class="form-group">
+  <label>コメント</label>
+  <%= f.text_field :comment ,:class => "form-control"%>
+</div>
+  <%= f.hidden_field :is_public ,:value => true %>
+  <%= f.hidden_field :company ,:value => @company.code %>
+  <% if user_signed_in? then %>
+    <%= f.hidden_field :user_id ,:value => current_user.id%>
+  <% else %>
+    <%= f.hidden_field :user_id ,:value => 0%>
+  <% end  %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+<% end %>
+</div>
