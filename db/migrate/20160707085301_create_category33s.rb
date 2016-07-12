@@ -3,7 +3,7 @@ class CreateCategory33s < ActiveRecord::Migration
     create_table :category33s do |t|
       t.integer :code
       t.string :category33
-      # t.has_many :companies
+      t.has_many :companies
 
       t.timestamps null: false
     end

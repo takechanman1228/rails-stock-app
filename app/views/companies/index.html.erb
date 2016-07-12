@@ -1,5 +1,7 @@
 <%- model_class = Company -%>
 <div class="panel-body">
+<!-- <%= debug @category33_hash%> -->
+<!-- <%= debug @category33s[0]%> -->
 
   <% if @result_companies %>
     <% loop =  @result_companies %>
@@ -37,7 +39,7 @@
       <th>企業コード</th>
       <th>企業名</th>
       <th>市場</th>
-      <th>業種</th>
+      <th>業種(33分類)</th>
       <th>規模</th>
       <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
     </tr>
@@ -60,7 +62,7 @@
       <td><%= company.code %></td>
       <td><%= link_to company.name, company_path(company.id) %></td>
       <td><%= link_to company.market["market"], market_path(company.market["id"])  unless company.market.nil? %></td>
-      <td><%= company.category33["category33"] unless company.category33.nil? %></td>
+      <td><%= link_to @category33_hash[company.category33_id], category33_path(company.category33_id) unless company.category33_id.nil? %></td>
       <td><%= company.scale["scale"] unless company.scale.nil? %></td>
     <% end %>
   </tbody>

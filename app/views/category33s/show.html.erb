@@ -1,9 +1,31 @@
-<%= debug @category33 %>
-<h2>33分類業種</h2>
-<ul>
-<% @category33.company_ids.each do |company_id| %>
-<li>company_id
-    <%= @companies[company_id].name unless @companies[company_id].nil? %>
-</li>
-<% end %>
-</ul>
+<!-- <%= debug @category33["category33"]%> -->
+<!-- <%= debug @compaies_this_category%> -->
+<h2>業種 (
+<%=@category33["category33"]%>
+)
+</h2>
+
+<table class="table table-striped">
+   <thead class="thead-inverse">
+    <tr>
+      <th>企業コード</th>
+      <th>企業名</th>
+      <th>市場</th>
+      <th>業種</th>
+      <th>規模</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @compaies_this_category.each do |company| %>
+
+    <tr>
+      <td><%= company.code %></td>
+      <td><%= link_to company.name,company_path(company.id) %></td>
+      <td><%= link_to company.market["market"], market_path(company.market["id"])  unless company.market.nil? %></td>
+      <td><%=@category33["category33"]%></td>
+      <td><%= company.scale["scale"] unless company.scale.nil? %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
