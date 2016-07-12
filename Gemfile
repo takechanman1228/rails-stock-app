@@ -35,6 +35,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+# device
+gem 'devise'
+gem 'rails_admin'
+
+# seed
+gem 'seed-fu', '~> 2.3'
+gem 'rails_12factor', group: :production
+
+
+# gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+gem 'autoprefixer-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -47,25 +65,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-# device
-gem 'devise'
-gem 'rails_admin'
-
-# seed
-gem 'seed-fu', '~> 2.3'
-gem 'rails_12factor', group: :production
-
-
-# bootstrap
-# gem 'bootstrap', '~> 4.0.0.alpha3'
-# source 'https://rails-assets.org' do
-#   gem 'rails-assets-tether', '>= 1.1.0'
-# end
-gem 'therubyracer'
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
-
-gem 'bootstrap-sass'
-gem 'sass-rails'
-gem 'autoprefixer-rails'

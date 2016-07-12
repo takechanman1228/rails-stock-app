@@ -42,8 +42,9 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.2)
-      sass (~> 3.2)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
     coffee-rails (4.1.1)
@@ -219,7 +220,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bcrypt (~> 3.1.7)
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
   devise
@@ -230,7 +231,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   rails_admin
-  sass-rails
+  sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   seed-fu (~> 2.3)
   spring

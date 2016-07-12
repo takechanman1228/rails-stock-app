@@ -10,7 +10,7 @@
       <%= link_to company.name, company_path(company.id) %>,
       <%= link_to company.market["market"], market_path(company.market["id"])  unless company.market.nil? %>,
       <%= #company.category17["category17"] unless company.category17.nil?
-       %>,
+       %>
       <%= company.category33["category33"] unless company.category33.nil? %>,
       <%= company.scale["scale"] unless company.scale.nil? %>
     </li>
