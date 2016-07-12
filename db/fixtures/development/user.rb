@@ -8,5 +8,6 @@
 # coding: utf-8
 user = User.new
 user.email = 'admin@test.com'
+user.password = 'password'
 user.encrypted_password = '$2a$11$JY3oP7zm49jXS43XC5KyfeQUcjx.QUGdd3QsyIbeN.3ydiDkYyvFy'
 user.save!

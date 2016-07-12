@@ -2,6 +2,6 @@
 
 <ul>
     <% @category33s.each do |category33| %>
-    <li><%= category33.code %>,<%= category33.category33 %></li>
+    <li><%= link_to category33.category33,category33_path(category33.code) %></li>
     <% end %>
 </ul>

@@ -1,0 +1,9 @@
+<%= debug @category33 %>
+<h2>33分類業種</h2>
+<ul>
+<% @category33.company_ids.each do |company_id| %>
+<li>company_id
+    <%= @companies[company_id].name unless @companies[company_id].nil? %>
+</li>
+<% end %>
+</ul>
