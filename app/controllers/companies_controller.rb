@@ -5,6 +5,8 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     # @markets = @companies[0].market
     # @markets_from_companies = Company.market
+    @q = Company.ransack(params[:q])
+    @result_companies = @q.result
   end
   def show
   end
