@@ -38,6 +38,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # device
 gem 'devise'
+gem "twitter-bootstrap-rails"
+gem 'devise-bootstrap-views'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
 gem 'rails_admin'
 
 # seed
