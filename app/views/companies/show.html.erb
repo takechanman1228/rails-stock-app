@@ -1,9 +1,4 @@
 <h1><%= @company.name %></h1>
-<!-- <%= @company.code %>,
-<%= @company.name %>,
-<%= @company.market["market"] unless @company.market.nil? %>,
-<%= @company.category33["category33"] unless @company.category33.nil? %>,
-<%= @company.scale["scale"] unless @company.scale.nil? %> -->
 <table class="table table-striped">
    <thead class="thead-inverse">
     <tr>
@@ -25,8 +20,6 @@
   </tbody>
 </table>
 <h2>コメント</h2>
-
-
 <table class="table">
    <thead class="thead-inverse">
     <tr>
@@ -44,19 +37,7 @@
 
   </tbody>
 </table>
-<!--
-<ul>
-<% @company.comments.each do |comment| %>
-<li>
-    <%= comment.nickname unless comment.nickname.nil? %>,
-    <%= comment.comment unless comment.comment.nil? %>,
-    <%= comment.user.email unless comment.user.nil? %>
-    <%= comment.company.name unless comment.company.nil? %>
-    <%= #link_to "[Delete]", company_comment_path(comment.company_id, comment.id), method: :delete, data: { confirm: "are you sure?" }
-     %>
-</li>
-<% end %>
-</ul> -->
+
 <div class="container">
 <%= form_for [@company, @company.comments.build] do |f| %>
 <div class="form-group">

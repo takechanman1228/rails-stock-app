@@ -12,9 +12,11 @@ class CompaniesController < ApplicationController
     Category33.all.each{|category33|
       @category33_hash[category33["code"]] = category33["category33"]
     }
+    @comments = Comment.all
 
   end
   def show
+    @comments = Comment.all
   end
 
   # セキュリティ
