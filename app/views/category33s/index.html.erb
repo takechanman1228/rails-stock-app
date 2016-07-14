@@ -1,7 +1,16 @@
 <h1>業種</h1>
 
-<ul>
-    <% @category33s.each do |category33| %>
-    <li><%= link_to category33.category33,category33_path(category33.code) %></li>
+<table class="table table-striped">
+   <thead class="thead-inverse">
+    <tr>
+      <th>業種</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @category33s.each do |category33| %>
+    <tr>
+      <td><%= link_to category33.category33, category33_path(category33.code) %></td>
+    </tr>
     <% end %>
-</ul>
+  </tbody>
+</table>

@@ -1,24 +1,15 @@
 <h1>市場</h1>
-<!-- <%= debug @markets%> -->
-<!-- <ul>
-    <% @markets.each do |market| %>
-    <li><%= link_to market.market, market_path(market.id) %></li>
-    <% end %>
-</ul> -->
-
 <table class="table table-striped">
    <thead class="thead-inverse">
     <tr>
       <th>市場</th>
-      <!-- <th>銘柄数</th> -->
-      <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
     </tr>
   </thead>
   <tbody>
   <% @markets.each do |market| %>
     <tr>
       <td><%= link_to market.market, market_path(market.id) %></td>
-      <!-- <td></td> -->
+    </tr>
     <% end %>
   </tbody>
 </table>
